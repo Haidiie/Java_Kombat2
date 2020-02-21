@@ -10,7 +10,7 @@ public class Fighter {
 
     public Fighter(String name) {
         this.health = 100;
-        this.attack = random.nextInt(10);
+        this.attack = random.nextInt(10)+1;
         this.defence = random.nextInt(5);
         this.name = name;
     }
@@ -24,27 +24,36 @@ public class Fighter {
         this.health = health;
     }
 
-    public int getAttack() {
-        return attack;
+    public void loseHealth(int damage) {
+        this.health = this.health - damage;
+        if (this.health < 1) {
+            System.out.println(this.name + " knocked out--------------------------");
+        }
     }
 
-    public void setAttack(int attack) {
-        this.attack = attack;
-    }
 
-    public int getDefence() {
-        return defence;
-    }
+        public int getAttack () {
+            return attack;
+        }
 
-    public void setDefence(int defence) {
-        this.defence = defence;
-    }
+        public void setAttack ( int attack){
+            this.attack = attack;
+        }
 
-    public String getName() {
-        return name;
-    }
+        public int getDefence () {
+            return defence;
+        }
 
-    public void setName(String name) {
-        this.name = name;
-    }
+        public void setDefence ( int defence){
+            this.defence = defence;
+        }
+
+        public String getName () {
+            return name;
+        }
+
+        public void setName (String name){
+            this.name = name;
+        }
+
 }

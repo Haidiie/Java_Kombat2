@@ -3,14 +3,14 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 
-public class Database {
+public class Match {
     Random random = new Random();
 
-    private int totalFighters;
+    List<Fighter> fighters = new ArrayList<>();
 
-    ArrayList<Fighter> fighters = new ArrayList<>();
 
     public void SQL(){
 
@@ -38,16 +38,12 @@ public class Database {
 
             while (myRs.next()) {
                 fighters.add(new Fighter(myRs.getString("name")));
-                this.totalFighters++;
 
-                //System.out.println(myRs.getString("name"));
             }
 
             for (int i = 0; i < fighters.size(); i++) {
                 System.out.println(fighters.get(i).getName());
-                System.out.println(fighters.get(i).getAttack());
-                System.out.println(fighters.get(i).getDefence());
-
+                System.out.println(fighters.get(i).getAttack() + " " + fighters.get(i).getDefence());
             }
 
 
@@ -61,7 +57,8 @@ public class Database {
         return fighters.get(random.nextInt(num));
     }
 
-    public int getTotalFighters() {
-        return totalFighters;
+
+    public int getTotalFighters(){
+        return fighters.size();
     }
 }
