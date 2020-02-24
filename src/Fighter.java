@@ -11,7 +11,7 @@ public class Fighter {
     public Fighter(String name) {
         this.health = 100;
         this.attack = random.nextInt(10)+1;
-        this.defence = random.nextInt(5);
+        this.defence = random.nextInt(7)+1;
         this.name = name;
     }
 

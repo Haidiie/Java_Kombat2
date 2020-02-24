@@ -3,6 +3,7 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Random;
 
@@ -23,7 +24,6 @@ public class Match {
         String pass = "haidarbb";
 
 
-
         try {
 
 
@@ -40,6 +40,8 @@ public class Match {
                 fighters.add(new Fighter(myRs.getString("name")));
 
             }
+
+            Collections.shuffle(fighters);
 
             for (int i = 0; i < fighters.size(); i++) {
                 System.out.println(fighters.get(i).getName());
