@@ -15,7 +15,6 @@ public class Fighter {
         this.name = name;
     }
 
-
     public int getHealth() {
         return health;
     }

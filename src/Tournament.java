@@ -4,10 +4,13 @@ import java.util.Scanner;
 
 public class Tournament {
 
+    Fighter fighter1;
+    Fighter fighter2;
+
     Match match = new Match();
+    Battle battle = new Battle();
     Scanner scanner = new Scanner(System.in);
-
-
+    
 
     public void fight() {
         match.SQL();
@@ -20,63 +23,10 @@ public class Tournament {
 
             for (int i = 0; i < match.getTotalFighters(); i = i + 2) {
 
-                Fighter fighter1 = match.fighters.get(i);
-                Fighter fighter2 = match.fighters.get(i + 1);
+                this.fighter1 = match.fighters.get(i);
+                this.fighter2 = match.fighters.get(i + 1);
 
-                System.out.println("\nThe Battle is between " + fighter1.getName() + " And " + fighter2.getName());
-                scanner.nextLine();
-
-
-
-                while (fighter2.getHealth() > 0 && fighter1.getHealth() > 0) {
-
-                    int dmg, blc, res, cou;
-
-                    System.out.println(fighter1.getName() + " Attacks with " + (dmg = fighter1.getAttack()));
-                    blc = fighter2.getDefence();
-                    res = (dmg - blc);
-                    if (res > 0) {
-
-                        fighter2.loseHealth(fighter1.getAttack());
-                        System.out.println(fighter2.getName() + " lost " + res + " Hp, " + fighter2.getHealth() + "Hp Left");
-                    } else if (res == 0) {
-                        System.out.println(fighter2.getName() + " Blocks the Attack!");
-                    } else {
-                        cou = Math.abs(res);
-                        System.out.println(fighter2.getName() + " Counter attacks with " + cou);
-                        fighter1.loseHealth(cou);
-                        System.out.println(fighter1.getName() + " lost " + cou + " Hp, " + fighter1.getHealth() + " Hp Left");
-
-                    }
-
-
-                    if (fighter2.getHealth() < 1 || fighter1.getHealth() < 1) {
-                        break;
-                    }
-
-
-                    System.out.println(fighter2.getName() + " Attacks with " + (dmg = fighter2.getAttack()));
-                    blc = fighter1.getDefence();
-                    res = (dmg - blc);
-                    if (res > 0) {
-
-                        fighter1.loseHealth(fighter2.getAttack());
-                        System.out.println(fighter1.getName() + " lost " + res + " Hp, " + fighter1.getHealth() + "Hp Left");
-                    } else if (res == 0) {
-                        System.out.println(fighter1.getName() + " Blocks the Attack!");
-                    } else {
-                        cou = Math.abs(res);
-                        System.out.println(fighter1.getName() + " Counter attacks with " + cou);
-                        fighter2.loseHealth(cou);
-                        System.out.println(fighter2.getName() + " lost " + cou + " Hp, " + fighter2.getHealth() + " Hp Left");
-                    }
-
-                        System.out.println();
-
-
-                    }
-
-
+                battle.battle(this.fighter1,this.fighter2);
                 }
 
 
@@ -99,10 +49,7 @@ public class Tournament {
 
             }
             while (match.fighters.size() > 1) ;
-
-
         }
-
 }
 
 
