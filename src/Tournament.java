@@ -10,7 +10,7 @@ public class Tournament {
     Match match = new Match();
     Battle battle = new Battle();
     Scanner scanner = new Scanner(System.in);
-    
+
 
     public void fight() {
         match.SQL();
