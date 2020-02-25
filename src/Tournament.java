@@ -30,7 +30,8 @@ public class Tournament {
                 }
 
 
-                System.out.println(match.fighters.size());
+                System.out.println("The LOSERS!");
+
                 List<Fighter> remainingFighters = new ArrayList<>();
 
                 for (int i = 0; i < match.getTotalFighters(); i++) {
@@ -42,7 +43,8 @@ public class Tournament {
                     }
                 }
                 match.fighters = remainingFighters;
-                System.out.println(match.fighters.size());
+
+                System.out.println("\nThe WINNERS!");
                 for (int i = 0; i < match.getTotalFighters(); i++) {
                     System.out.println("\n" + match.fighters.get(i).getName() + " " + match.fighters.get(i).getHealth());
                 }
@@ -50,6 +52,7 @@ public class Tournament {
             }
             while (match.fighters.size() > 1) ;
         }
+
 }
 
 

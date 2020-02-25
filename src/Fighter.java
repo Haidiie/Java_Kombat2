@@ -7,12 +7,14 @@ public class Fighter {
     private int attack;
     private int defence;
     private String name;
+    private String motto;
 
-    public Fighter(String name) {
+    public Fighter(String name, String motto) {
         this.health = 100;
-        this.attack = random.nextInt(10)+1;
-        this.defence = random.nextInt(7)+1;
+        this.attack = random.nextInt(20)+10;
+        this.defence = random.nextInt(20)+10;
         this.name = name;
+        this.motto = motto;
     }
 
     public int getHealth() {
@@ -55,4 +57,7 @@ public class Fighter {
             this.name = name;
         }
 
+    public String getMotto() {
+        return motto;
+    }
 }

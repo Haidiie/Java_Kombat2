@@ -28,25 +28,23 @@ public class Match {
 
 
             myConn = DriverManager.getConnection(dbUrl,user,pass);
-            System.out.println("Anslutning lyckades\n");
+            System.out.println("Anslutning till mysql lyckades\n");
 
 
             myStmt = myConn.createStatement();
 
-            myRs = myStmt.executeQuery("select name from fighters");
+            myRs = myStmt.executeQuery("select * from fighters");
 
 
             while (myRs.next()) {
-                fighters.add(new Fighter(myRs.getString("name")));
+                fighters.add(new Fighter(myRs.getString("name"),myRs.getString("motto")));
 
             }
 
             Collections.shuffle(fighters);
 
-            for (int i = 0; i < fighters.size(); i++) {
-                System.out.println(fighters.get(i).getName());
-                System.out.println(fighters.get(i).getAttack() + " " + fighters.get(i).getDefence());
-            }
+                System.out.println("The Java Kombat beginns with " + fighters.size() + " fighters!");
+
 
 
         }
