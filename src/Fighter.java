@@ -3,16 +3,13 @@ import java.util.Random;
 public class Fighter {
     Random random = new Random();
 
-    private int health;
-    private int attack;
-    private int defence;
+    private int health = 20;
+    private int attack = random.nextInt(3) + 1;
+    private int defence = random.nextInt(3) + 1;
     private String name;
     private String motto;
 
     public Fighter(String name, String motto) {
-        this.health = 100;
-        this.attack = random.nextInt(20)+10;
-        this.defence = random.nextInt(20)+10;
         this.name = name;
         this.motto = motto;
     }
@@ -32,32 +29,27 @@ public class Fighter {
         }
     }
 
+    public int getAttack() {
+        return attack;
+    }
 
-        public int getAttack () {
-            return attack;
-        }
+    public int getDefence() {
+        return defence;
+    }
 
-        public void setAttack ( int attack){
-            this.attack = attack;
-        }
-
-        public int getDefence () {
-            return defence;
-        }
-
-        public void setDefence ( int defence){
-            this.defence = defence;
-        }
-
-        public String getName () {
-            return name;
-        }
-
-        public void setName (String name){
-            this.name = name;
-        }
+    public String getName() {
+        return name;
+    }
 
     public String getMotto() {
         return motto;
+    }
+
+    public void setAttack(int attack) {
+        this.attack = attack;
+    }
+
+    public void setDefence(int defence) {
+        this.defence = defence;
     }
 }
